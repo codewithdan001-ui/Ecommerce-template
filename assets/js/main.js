@@ -19,6 +19,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchContainer = document.getElementById('search-container');
     const cartCount = document.querySelector('.cart-count');
 
+    // Create Toast Container
+    const toastContainer = document.createElement('div');
+    toastContainer.className = 'toast-container';
+    document.body.appendChild(toastContainer);
+
+    const showToast = (message, type = 'success') => {
+        const toast = document.createElement('div');
+        toast.className = `toast toast-${type}`;
+        const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+        toast.innerHTML = `
+            <i class="fas ${icon} toast-icon" style="color: var(--${type})"></i>
+            <span class="toast-message">${message}</span>
+        `;
+        toastContainer.appendChild(toast);
+        
+        // Trigger reflow for animation
+        toast.offsetHeight;
+        toast.classList.add('active');
+
+        setTimeout(() => {
+            toast.classList.remove('active');
+            setTimeout(() => toast.remove(), 300);
+        }, 3000);
+    };
+
     // 1. Mobile Menu Toggle
     if (mobileMenuBtn && navLinks) {
         mobileMenuBtn.addEventListener('click', (e) => {
@@ -117,6 +142,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (name) name.textContent = product.name;
             if (price) price.textContent = `$${product.price.toFixed(2)}`;
             if (desc) desc.textContent = product.desc;
+            
+            const addBtnDetail = document.getElementById('add-to-cart-detail');
+            if (addBtnDetail) addBtnDetail.setAttribute('data-id', product.id);
+            
             document.title = `${product.name} | ModernStore`;
         } else {
             window.location.href = 'products.html';
@@ -181,17 +210,46 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // Add to cart feedback
+        // Add to cart AJAX
         if (e.target.classList.contains('add-to-cart-btn')) {
-            e.preventDefault();
-            if (cartCount) cartCount.textContent = parseInt(cartCount.textContent) + 1;
-            const originalText = e.target.textContent;
-            e.target.textContent = 'Added to Cart!';
-            e.target.style.backgroundColor = 'var(--success)';
-            setTimeout(() => {
-                e.target.textContent = originalText;
-                e.target.style.backgroundColor = '';
-            }, 2000);
+            const btn = e.target;
+            const productId = btn.getAttribute('data-id');
+            const originalText = btn.textContent;
+            
+            // Get quantity if on product detail page, else default 1
+            const qtyInput = document.getElementById('product-quantity');
+            const quantity = qtyInput ? qtyInput.value : 1;
+
+            if (!productId) return;
+
+            btn.disabled = true;
+            btn.textContent = 'Adding...';
+
+            const formData = new FormData();
+            formData.append('product_id', productId);
+            formData.append('quantity', quantity);
+
+            fetch('cart/add_to_cart.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'success') {
+                    showToast(data.message || 'Added to cart!');
+                    if (cartCount) cartCount.textContent = parseInt(cartCount.textContent) + 1;
+                } else {
+                    showToast(data.message || 'Error adding to cart', 'error');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                showToast('Failed to connect to server', 'error');
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.textContent = originalText;
+            });
         }
     });
 
@@ -243,5 +301,61 @@ document.addEventListener('DOMContentLoaded', () => {
                 window.location.href = redirectPath;
             }, 1000);
         });
+    });
+});
+
+// TOAST SYSTEM
+function showToast(message) {
+    let toast = document.getElementById("toast");
+
+    if (!toast) {
+        toast = document.createElement("div");
+        toast.id = "toast";
+        toast.style.position = "fixed";
+        toast.style.bottom = "20px";
+        toast.style.right = "20px";
+        toast.style.background = "#111";
+        toast.style.color = "#fff";
+        toast.style.padding = "12px 20px";
+        toast.style.borderRadius = "8px";
+        toast.style.zIndex = "9999";
+        document.body.appendChild(toast);
+    }
+
+    toast.innerText = message;
+    toast.style.display = "block";
+
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 2000);
+}
+
+
+// ADD TO CART AJAX
+document.querySelectorAll(".add-to-cart-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+
+        let productId = this.getAttribute("data-id");
+
+        this.innerText = "Adding...";
+
+        fetch("cart/add_to_cart.php", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: "product_id=" + productId
+        })
+        .then(res => res.json())
+        .then(data => {
+
+            this.innerText = "Add to Cart";
+            showToast(data.message);
+        })
+        .catch(() => {
+            this.innerText = "Add to Cart";
+            showToast("Error adding to cart");
+        });
+
     });
 });
