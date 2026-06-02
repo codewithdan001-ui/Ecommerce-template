@@ -69,15 +69,15 @@
                     <div style="margin-bottom: 2.5rem;">
                         <h4 style="margin-bottom: 0.75rem;">Quantity</h4>
                         <div style="display: flex; align-items: center; border: 1px solid var(--border); width: fit-content; border-radius: var(--radius); overflow: hidden;">
-                            <button class="btn btn-outline qty-btn minus" style="border: none; padding: 0.5rem 1rem;">-</button>
-                            <input type="number" value="1" readonly style="width: 50px; text-align: center; border: none; font-weight: 600; outline: none;">
-                            <button class="btn btn-outline qty-btn plus" style="border: none; padding: 0.5rem 1rem;">+</button>
+                            <button type="button" class="btn btn-outline qty-btn minus" style="border: none; padding: 0.5rem 1rem;">-</button>
+                            <input type="number" id="product-quantity" value="1" readonly style="width: 50px; text-align: center; border: none; font-weight: 600; outline: none;">
+                            <button type="button" class="btn btn-outline qty-btn plus" style="border: none; padding: 0.5rem 1rem;">+</button>
                         </div>
                     </div>
 
                     <div style="display: flex; gap: 1rem;">
-                        <button class="btn btn-primary btn-block add-to-cart-btn" style="flex: 2; padding: 1rem;">Add to Cart</button>
-                        <button class="btn btn-outline" style="flex: 0.5; font-size: 1.25rem;"><i class="far fa-heart"></i></button>
+                        <button class="btn btn-primary btn-block add-to-cart-btn" id="add-to-cart-detail" style="flex: 2; padding: 1rem;">Add to Cart</button>
+                        <button type="button" class="btn btn-outline" style="flex: 0.5; font-size: 1.25rem;"><i class="far fa-heart"></i></button>
                     </div>
 
                     <div style="margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem;">
