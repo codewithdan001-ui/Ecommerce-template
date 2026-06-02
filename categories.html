@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories | ModernStore</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bolt"></i> ModernStore
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Shop</a></li>
+                <li><a href="categories.html" class="nav-link active" style="color: var(--primary);">Categories</a></li>
+                <li><a href="deals.html" class="nav-link">Deals</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="search-bar" style="position: relative; display: none; width: 200px;" id="search-container">
+                    <input type="text" class="form-control" placeholder="Search..." style="padding: 0.5rem 1rem;">
+                </div>
+                <a href="#" class="nav-action-btn" id="search-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="nav-action-btn"><i class="far fa-heart"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header style="padding: 4rem 0; text-align: center;">
+            <h1>Shop by Category</h1>
+            <p class="text-muted">Find exactly what you're looking for.</p>
+        </header>
+
+        <section class="reveal">
+            <div class="category-grid">
+                <div class="category-card" onclick="window.location.href='products.html?category=electronics'">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=1999&auto=format&fit=crop" alt="Electronics">
+                    <div class="category-overlay"><h3>Electronics</h3></div>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=footwear'">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2070&auto=format&fit=crop" alt="Footwear">
+                    <div class="category-overlay"><h3>Footwear</h3></div>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=fashion'">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop" alt="Fashion">
+                    <div class="category-overlay"><h3>Fashion</h3></div>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=audio'">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=2070&auto=format&fit=crop" alt="Audio">
+                    <div class="category-overlay"><h3>Audio</h3></div>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=accessories'">
+                    <img src="https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?q=80&w=1996&auto=format&fit=crop" alt="Accessories">
+                    <div class="category-overlay"><h3>Accessories</h3></div>
+                </div>
+                <div class="category-card" onclick="window.location.href='products.html?category=home'">
+                    <img src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=2070&auto=format&fit=crop" alt="Home">
+                    <div class="category-overlay"><h3>Home</h3></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-bolt"></i> ModernStore
+                    </a>
+                    <p class="text-muted">The leading destination for premium lifestyle products. We combine quality craftsmanship with modern design.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="products.html" class="footer-link">Shop All</a></li>
+                        <li><a href="categories.html" class="footer-link">Categories</a></li>
+                        <li><a href="deals.html" class="footer-link">Special Deals</a></li>
+                        <li><a href="about.html" class="footer-link">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">Shipping Policy</a></li>
+                        <li><a href="#" class="footer-link">Returns & Exchanges</a></li>
+                        <li><a href="#" class="footer-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form id="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ModernStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

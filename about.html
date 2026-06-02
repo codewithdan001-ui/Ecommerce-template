@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | ModernStore</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bolt"></i> ModernStore
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Shop</a></li>
+                <li><a href="categories.html" class="nav-link">Categories</a></li>
+                <li><a href="deals.html" class="nav-link">Deals</a></li>
+                <li><a href="about.html" class="nav-link active" style="color: var(--primary);">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="search-bar" style="position: relative; display: none; width: 200px;" id="search-container">
+                    <input type="text" class="form-control" placeholder="Search..." style="padding: 0.5rem 1rem;">
+                </div>
+                <a href="#" class="nav-action-btn" id="search-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="nav-action-btn"><i class="far fa-heart"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <header style="padding: 4rem 0; text-align: center;">
+            <h1>Our Story</h1>
+            <p class="text-muted">Redefining modern retail since 2026.</p>
+        </header>
+
+        <section class="reveal" style="margin-bottom: 4rem;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; align-items: center;">
+                <div>
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop" alt="Our Team" style="width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-lg);">
+                </div>
+                <div>
+                    <h2 style="margin-bottom: 1.5rem;">Who We Are</h2>
+                    <p style="margin-bottom: 1rem; line-height: 1.8;">ModernStore was born from a simple idea: that quality design should be accessible to everyone. We started as a small team of enthusiasts in a garage, and today we've grown into a global destination for premium lifestyle products.</p>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8;">Our mission is to provide products that combine functionality, aesthetics, and sustainability. Every item in our collection is carefully curated to meet our high standards of craftsmanship.</p>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                        <div>
+                            <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;">10k+</h3>
+                            <p class="text-muted">Happy Customers</p>
+                        </div>
+                        <div>
+                            <h3 style="color: var(--primary); font-size: 2rem; margin-bottom: 0.5rem;">500+</h3>
+                            <p class="text-muted">Premium Products</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="reveal" style="background: var(--bg-light); padding: 4rem 2rem; border-radius: var(--radius-lg); margin-bottom: 4rem; text-align: center;">
+            <h2 style="margin-bottom: 3rem;">Our Core Values</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+                <div>
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-gem"></i></div>
+                    <h3>Quality</h3>
+                    <p class="text-muted">We never compromise on the quality of our materials or craftsmanship.</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-leaf"></i></div>
+                    <h3>Sustainability</h3>
+                    <p class="text-muted">We're committed to reducing our environmental footprint at every step.</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem;"><i class="fas fa-heart"></i></div>
+                    <h3>Customer First</h3>
+                    <p class="text-muted">Your satisfaction is our top priority. We're here to help you 24/7.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="index.html" class="logo" style="margin-bottom: 1.5rem;">
+                        <i class="fas fa-bolt"></i> ModernStore
+                    </a>
+                    <p class="text-muted">The leading destination for premium lifestyle products. We combine quality craftsmanship with modern design.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html" class="footer-link">Home</a></li>
+                        <li><a href="products.html" class="footer-link">Shop All</a></li>
+                        <li><a href="categories.html" class="footer-link">Categories</a></li>
+                        <li><a href="deals.html" class="footer-link">Special Deals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Customer Service</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Contact Us</a></li>
+                        <li><a href="#" class="footer-link">Shipping Policy</a></li>
+                        <li><a href="#" class="footer-link">Returns & Exchanges</a></li>
+                        <li><a href="#" class="footer-link">FAQs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Newsletter</h4>
+                    <p class="text-muted" style="margin-bottom: 1.5rem;">Subscribe to receive updates, access to exclusive deals, and more.</p>
+                    <form id="newsletter-form">
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 ModernStore. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | ModernStore</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body style="background-color: #f1f5f9;">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-bolt"></i> ModernStore
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="products.html" class="nav-link">Shop</a></li>
+                <li><a href="categories.html" class="nav-link">Categories</a></li>
+                <li><a href="deals.html" class="nav-link">Deals</a></li>
+                <li><a href="about.html" class="nav-link">About</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="search-bar" style="position: relative; display: none; width: 200px;" id="search-container">
+                    <input type="text" class="form-control" placeholder="Search..." style="padding: 0.5rem 1rem;">
+                </div>
+                <a href="#" class="nav-action-btn" id="search-btn"><i class="fas fa-search"></i></a>
+                <a href="#" class="nav-action-btn"><i class="far fa-heart"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+                <a href="login.html" class="btn btn-primary btn-sm">Sign In</a>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 2rem 1.5rem;">
+        <div style="display: grid; grid-template-columns: 240px 1fr; gap: 2.5rem;">
+            <!-- Admin Sidebar -->
+            <aside>
+                <nav style="display: flex; flex-direction: column; gap: 0.5rem;">
+                    <a href="#" class="btn btn-block" style="justify-content: flex-start; background: #334155; color: white;"><i class="fas fa-chart-line"></i> Dashboard</a>
+                    <a href="#" class="btn btn-block" style="justify-content: flex-start; color: #64748b;"><i class="fas fa-box"></i> Products</a>
+                    <a href="#" class="btn btn-block" style="justify-content: flex-start; color: #64748b;"><i class="fas fa-shopping-cart"></i> Orders</a>
+                    <a href="#" class="btn btn-block" style="justify-content: flex-start; color: #64748b;"><i class="fas fa-users"></i> Customers</a>
+                    <a href="#" class="btn btn-block" style="justify-content: flex-start; color: #64748b;"><i class="fas fa-cog"></i> Settings</a>
+                    <hr style="border: 0; border-top: 1px solid #cbd5e1; margin: 1rem 0;">
+                    <a href="index.html" class="btn btn-block" style="justify-content: flex-start; color: #64748b;"><i class="fas fa-external-link-alt"></i> View Store</a>
+                </nav>
+            </aside>
+
+            <!-- Admin Main Content -->
+            <main>
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                    <h1 style="margin: 0; font-size: 1.75rem;">Dashboard Overview</h1>
+                    <button class="btn btn-primary"><i class="fas fa-plus"></i> Add Product</button>
+                </div>
+
+                <!-- Stats Cards -->
+                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 3rem;">
+                    <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem; display: flex; justify-content: space-between;">
+                            <span>Revenue</span>
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <h2 style="margin: 0;">$42,500</h2>
+                        <p style="color: var(--success); font-size: 0.75rem; margin-top: 0.5rem;"><i class="fas fa-arrow-up"></i> 12.5% from last month</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem; display: flex; justify-content: space-between;">
+                            <span>Total Orders</span>
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h2 style="margin: 0;">1,240</h2>
+                        <p style="color: var(--success); font-size: 0.75rem; margin-top: 0.5rem;"><i class="fas fa-arrow-up"></i> 8.2% from last month</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem; display: flex; justify-content: space-between;">
+                            <span>Avg. Order</span>
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h2 style="margin: 0;">$85.20</h2>
+                        <p style="color: var(--danger); font-size: 0.75rem; margin-top: 0.5rem;"><i class="fas fa-arrow-down"></i> 2.1% from last month</p>
+                    </div>
+                    <div style="background: white; padding: 1.5rem; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                        <div style="color: #64748b; font-size: 0.875rem; margin-bottom: 1rem; display: flex; justify-content: space-between;">
+                            <span>Visitors</span>
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h2 style="margin: 0;">15.2k</h2>
+                        <p style="color: var(--success); font-size: 0.75rem; margin-top: 0.5rem;"><i class="fas fa-arrow-up"></i> 15% from last month</p>
+                    </div>
+                </div>
+
+                <!-- Recent Sales & Inventory -->
+                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+                    <!-- Recent Orders -->
+                    <div style="background: white; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden;">
+                        <div style="padding: 1.25rem; border-bottom: 1px solid #e2e8f0; font-weight: 700;">Recent Orders</div>
+                        <table style="width: 100%; border-collapse: collapse;">
+                            <thead>
+                                <tr style="text-align: left; background: #f8fafc; font-size: 0.75rem; text-transform: uppercase; color: #64748b;">
+                                    <th style="padding: 1rem;">Order</th>
+                                    <th style="padding: 1rem;">Customer</th>
+                                    <th style="padding: 1rem;">Status</th>
+                                    <th style="padding: 1rem;">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: 0.875rem;">
+                                <tr style="border-bottom: 1px solid #f1f5f9;">
+                                    <td style="padding: 1rem; font-weight: 600;">#ORD-9921</td>
+                                    <td style="padding: 1rem;">Sarah Jenkins</td>
+                                    <td style="padding: 1rem;"><span style="color: #0891b2; background: #ecfeff; padding: 0.2rem 0.5rem; border-radius: 4px;">Processing</span></td>
+                                    <td style="padding: 1rem;">$129.00</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid #f1f5f9;">
+                                    <td style="padding: 1rem; font-weight: 600;">#ORD-9920</td>
+                                    <td style="padding: 1rem;">Mark Thompson</td>
+                                    <td style="padding: 1rem;"><span style="color: #16a34a; background: #f0fdf4; padding: 0.2rem 0.5rem; border-radius: 4px;">Shipped</span></td>
+                                    <td style="padding: 1rem;">$249.50</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 1rem; font-weight: 600;">#ORD-9919</td>
+                                    <td style="padding: 1rem;">Elena Rodriguez</td>
+                                    <td style="padding: 1rem;"><span style="color: #16a34a; background: #f0fdf4; padding: 0.2rem 0.5rem; border-radius: 4px;">Shipped</span></td>
+                                    <td style="padding: 1rem;">$85.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Low Stock Alerts -->
+                    <div style="background: white; border-radius: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); overflow: hidden;">
+                        <div style="padding: 1.25rem; border-bottom: 1px solid #e2e8f0; font-weight: 700; display: flex; align-items: center; gap: 0.5rem;">
+                            <i class="fas fa-exclamation-triangle" style="color: var(--accent);"></i> Inventory Alerts
+                        </div>
+                        <div style="padding: 1rem;">
+                            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                                <div style="width: 40px; height: 40px; background: #f1f5f9; border-radius: 4px;"></div>
+                                <div style="flex: 1;">
+                                    <p style="font-size: 0.8rem; font-weight: 600; margin: 0;">Studio Headphones</p>
+                                    <p style="font-size: 0.7rem; color: var(--danger);">Only 2 left in stock</p>
+                                </div>
+                            </div>
+                            <div style="display: flex; gap: 1rem; align-items: center; margin-bottom: 1rem;">
+                                <div style="width: 40px; height: 40px; background: #f1f5f9; border-radius: 4px;"></div>
+                                <div style="flex: 1;">
+                                    <p style="font-size: 0.8rem; font-weight: 600; margin: 0;">Premium Sneakers</p>
+                                    <p style="font-size: 0.7rem; color: var(--accent);">Only 5 left in stock</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-outline btn-sm btn-block">Restock Inventory</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <p class="text-muted">&copy; 2026 ModernStore. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
